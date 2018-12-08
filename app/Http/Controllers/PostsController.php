@@ -12,6 +12,12 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index','show']]);
+    }
+
     public function index()
     {
         $posts = Post::orderBy('created_at','desc')->paginate(10);
@@ -71,6 +77,11 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+
+        //Checking for correct user
+        if(auth()->user()->id !==$post->user_id and auth()->user()->role !== 'admin'){
+            return redirect('/posts')->with('error','Unauthorized Page');
+        }
         return view('posts.edit')->with('post',$post);
     }
 
@@ -105,6 +116,12 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        
+        //Checking for correct user
+        if(auth()->user()->id !==$post->user_id and auth()->user()->role !== 'admin'){
+            return redirect('/posts')->with('error','Unauthorized Page');
+        }
+        
         $post->delete();
         return redirect('/posts')->with('success', 'Post Deleted');
     }

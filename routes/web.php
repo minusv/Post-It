@@ -13,8 +13,7 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
-Route::get('/features', 'PagesController@features');
 Route::resource('posts', 'PostsController');
 Auth::routes();
-
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin');

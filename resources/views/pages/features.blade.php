@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('body')
+@section('content')
     <h1> {{$heading}} </h1>
     <p>
     @if(count($para)>0)

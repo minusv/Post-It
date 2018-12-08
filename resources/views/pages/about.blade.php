@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('body')
+@section('content')
     <h1> About </h1>
     <p> Trying my hands on Laravel </p>
 @endsection

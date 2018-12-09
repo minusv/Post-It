@@ -1,5 +1,6 @@
 # Post-It: firstLaravelApp
 
+Check out the app from [here](http://fathomless-shore-28925.herokuapp.com/posts).
 ## About
 
 Laravel is MVC framework for php. This is a simple Blog app created to get familiar with php and Laravel.

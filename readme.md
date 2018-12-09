@@ -15,7 +15,7 @@ Laravel is MVC framework for php. This is a simple Blog app created to get famil
 - Run migrations to create table.
 - Creating Admin:
   - Register using normal registeration link.
-  - Use either phpAdmin or tinker artisan command 
+  - Use either phpMyAdmin or tinker artisan command 
     - `php artisan tinker`
     - `use App\User`;
     - `User::where('email', 'xyz@gmail.com')->update(['role' => 'admin']);`

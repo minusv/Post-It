@@ -2,6 +2,7 @@
 
 @section('content')
     <h1>Edit Post</h1>
+    <!--Sending edited data to Update in PostsController-->
     {!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('title','Title')}}

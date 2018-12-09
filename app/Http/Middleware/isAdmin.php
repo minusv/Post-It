@@ -14,7 +14,8 @@ class isAdmin
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
+    {   
+        //if user is admin it'll go to admin page else every user will be directed to dashboard
         if(auth()->user()->isAdmin()){
             return $next($request);
         }

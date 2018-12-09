@@ -15,6 +15,8 @@ class PostsController extends Controller
 
     public function __construct()
     {
+        //adding exceptions to auth middleware
+        //since index and show routes can be viewed without authentication
         $this->middleware('auth', ['except' => ['index','show']]);
     }
 
@@ -78,7 +80,7 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
 
-        //Checking for correct user
+        //Checking for correct user or admin
         if(auth()->user()->id !==$post->user_id and auth()->user()->role !== 'admin'){
             return redirect('/posts')->with('error','Unauthorized Page');
         }
@@ -117,7 +119,7 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
         
-        //Checking for correct user
+        //Checking for correct user or admin
         if(auth()->user()->id !==$post->user_id and auth()->user()->role !== 'admin'){
             return redirect('/posts')->with('error','Unauthorized Page');
         }

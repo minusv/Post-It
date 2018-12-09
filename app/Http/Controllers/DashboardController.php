@@ -12,6 +12,7 @@ class DashboardController extends Controller
      *
      * @return void
      */
+    //user needs to be authenticated before accessing dashboard
     public function __construct()
     {
         $this->middleware('auth');
@@ -24,6 +25,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        //if user is admin, redirect to admin dashboard
         if(auth()->user()->role === 'admin'){
             return redirect('/admin');
         }

@@ -15,7 +15,7 @@
                     @endif
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
                     <h3>Your Posts</h3>
-                    @if(count($posts)>0)
+                    @if(count($posts)>0)<!--Checking if posts are there or not-->
                         <table class="table table-stripped">
                             <tr>
                                 <th>Title</th>

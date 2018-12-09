@@ -30,10 +30,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    //Function to check if the user is Admin or not. 
+    //Return True if role is equal to admin. 
     public function isAdmin(){
         return $this->role === self::ADMIN_TYPE;
     }
     
+    //Creating one to many relation between User and Post model
     public function posts(){
         return $this->hasMany('App\Post');
     }

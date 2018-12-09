@@ -26,10 +26,10 @@
                 <li><a href="{{ route('register') }}">Register</a></li>
             @else
                 <li class="nav-item dropdown">
+                    <!--User name display-->
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                        {{ Auth::user()->name }}</span>
                     </a>
-
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/dashboard">Dashboard</a></li>
                         <li>
